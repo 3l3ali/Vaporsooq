@@ -9,7 +9,10 @@ class User < ApplicationRecord
   validates :contact_info, presence: true
 
 
-
+  enum type: {
+    normal: 0,
+    premium: 1
+  }
   enum city: {
     Irbid: 0,
     Amman: 1,
