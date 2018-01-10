@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :contact_info, presence: true
 
 
-  enum type: {
+  enum user_type: {
     normal: 0,
     premium: 1
   }
