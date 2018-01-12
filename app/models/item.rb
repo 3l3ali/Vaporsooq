@@ -9,10 +9,10 @@ class Item < ApplicationRecord
 
 
    enum item_type: {
-    kits: 0,
-    mods: 1,
-    tanks: 2,
-    jucies: 3,
+    kit: 0,
+    mod: 1,
+    tank: 2,
+    jucie: 3,
     accessories: 4,
     combo: 5
   }
