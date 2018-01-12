@@ -23,8 +23,11 @@ class ItemsController < ApplicationController
   end
 
   def update        # PATCH /items/:id
-    @item.update(item_params)
-    redirect_to user_item_path(@item)
+    if @item.update(item_params)
+      redirect_to user_item_path(@item)
+    else
+      render 'edit'
+    end
   end
 
   def destroy       # DELETE /items/:id
