@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     if @item.save
-      redirect_to user_item_path(@item)
+      redirect_to user_item_path(current_user,@item)
     else
       render :new
     end
