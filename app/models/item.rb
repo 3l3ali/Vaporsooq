@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   validates :price , presence: true, length: { minimum: 0 }
   validates :item_type , presence: true
   validates :description , presence: true
+  validates :condition , presence: true
 
 
    enum item_type: {
