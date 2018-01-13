@@ -1,0 +1,67 @@
+.wrapper-sign-up {
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 7px;
+  // border: groove #1DE9B6;
+  box-shadow: 3px 3px 3px #36506C;
+
+  h2 {
+    color: #233142;
+    margin-bottom: 20px;
+  }
+}
+
+.sign-up-btn{
+  width:100%;
+  margin: 20px 0;
+  color: black;
+  border-color: #36506C;
+  border-width: 2px;
+  border-radius: 2px;
+
+  background-color: white;
+  &:hover {
+    background-color: #36506C;
+    color: white;
+    border-color: #36506C;
+  }
+}
+
+
+.or-line-login {
+  overflow: visible;
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+  height: 15px;
+  margin-bottom: 35px;
+  margin-top: 15px;
+}
+
+.or-line-login span {
+  line-height: 100%;
+  color: #A1A1A1;
+  background-color: #fff;
+  font-size: 18px;
+  text-transform: lowercase;
+  padding: 0 10px;
+}
+
+input:focus {
+  outline: none !important;
+  border:1px solid #36506C !important;
+  box-shadow: 0 0 10px #36506C;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #36506C !important;
+    box-shadow: 0 0 10px #36506C;
+}
+
+select:focus {
+    outline: none !important;
+    border-color: #36506C !important;
+    box-shadow: 0 0 10px #36506C;
+}
