@@ -17,9 +17,10 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
 
 /* Right section */
@@ -38,10 +39,10 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 16px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #3B5E85;
   text-decoration: none;
 }
 
