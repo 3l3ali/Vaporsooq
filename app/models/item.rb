@@ -17,4 +17,9 @@ class Item < ApplicationRecord
     combo: 5
   }
 
+  enum condition: {
+    New: 0,
+    Used: 1
+  }
+
 end
