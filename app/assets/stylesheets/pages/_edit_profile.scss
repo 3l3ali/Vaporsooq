@@ -1,0 +1,21 @@
+.delete-acc {
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 7px;
+  // border: groove #1DE9B6;
+  box-shadow: 3px 3px 3px #36506C;
+
+  h2 {
+    color: #233142;
+    margin-bottom: 20px;
+  }
+}
+
+.cancel_button {
+ color: red;
+ &:hover {
+  text-decoration: none;
+ }
+}
