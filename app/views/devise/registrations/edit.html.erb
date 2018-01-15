@@ -8,15 +8,15 @@
 
           <div class="form-inputs">
             <%= f.input :first_name, required: true, autofocus: true %>
-            <%= f.input :last_name, required: true %>
-            <%= f.input :photo %>
-            <%= f.input :photo_cache, as: :hidden %>
-            <%= f.input :city, required: true,collection: User.cities.keys %>
-            <%= f.input :contact_info, required: true %>
-            <%= f.input :description  %>
-            <%= f.input :delivery  %>
-            <%= f.input :delivery_discription %>
-            <%= f.input :email, required: true %>
+              <%= f.input :last_name, required: true %>
+              <%= f.input :city, required: true,collection: User.cities.keys, prompt: "choose a city?"%>
+              <%= f.input :email, required: true ,placeholder:"my-email@example.com"%>
+              <%= f.input :contact_info, required: true,placeholder:"phone/whatsapp: 0799999999" %>
+              <%= f.input :description,placeholder:"i'm available only form 4pm to 9pm, please contact me within those times."  %>
+              <%= f.input :delivery %>
+              <%= f.input :delivery_discription ,placeholder:"i deliver to amman for free, other cities for 3jds.",label:"Delivery description" %>
+              <%= f.input :photo,label: "Profile picture"%>
+              <%= f.input :photo_cache, as: :hidden %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
