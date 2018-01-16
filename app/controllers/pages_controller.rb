@@ -4,5 +4,8 @@ class PagesController < ApplicationController
   def home
   end
   def explore
+    @q = Item.ransack(params[:q])
+    @items = @q.result.includes(:user)
   end
+
 end

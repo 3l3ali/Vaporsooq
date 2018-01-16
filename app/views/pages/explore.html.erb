@@ -1,0 +1,27 @@
+<%= search_form_for @q , url: explore_path do |f| %>
+
+
+  <%= f.label :Search %>
+  <%= f.search_field :title_cont , placeholder: "e.a revenger x"%>
+  <%#= f.select :user_city_eq, options_for_select(User.cities.keys) %>
+  <%#= f.select :item_type_eq, options_for_select(Item.item_types.keys) %>
+  <%#= f.select :condition_eq, options_for_select(Item.conditions.keys) %>
+
+  <%= f.select :user_city_eq, User.cities.to_a.map { |w| [w[0].humanize, w[1]] },
+                          {:prompt => "location"}%>
+  <%= f.select :item_type_eq, Item.item_types.to_a.map { |w| [w[0].humanize, w[1]] },
+                         {:prompt => "Type"} %>
+  <%= f.select :condition_eq, Item.conditions.to_a.map { |w| [w[0].humanize, w[1]] },
+                         {:prompt => "condition"} %>
+  <%#= f.label :city %>
+  <%#= f.search_field :user_city_cont %>
+
+<%#= sort_link(@q, :user_city, 'Last Name', default_order: :desc) %>
+  <%= f.submit %>
+<% end %>
+
+
+
+<% @items.each do |x| %>
+    <h3><%= x.title %></h3>
+<% end %>
