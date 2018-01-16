@@ -20,6 +20,7 @@ gem 'webpacker'
 # OUR GEMS
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
