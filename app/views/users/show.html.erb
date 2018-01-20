@@ -1,4 +1,123 @@
-<div class="div" style="width: 600px;height: 600px;">
-<%= cl_image_tag @user.photo %>
+<!-- <div class="div" style="width: 600px;height: 600px;">
+<#%= cl_image_tag @user.photo %>
 
+</div>
+ -->
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+  $( document ).ready(function() {
+      /* Basic Gallery */
+      $( '.swipebox' ).swipebox();
+      });
+  </script>
+<% end %>
+
+<!-- DESKTOP -->
+<div class="show-wrapper hidden-xs hidden-sm">
+  <div class="bio-wrapper">
+    <div class="bio-image text-center">
+      <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+    </div>
+    <div class="bio-name text-center">
+      <h4><%= @user.first_name %> <%= @user.last_name %> </h4>
+    </div>
+    <table class="bio-table">
+      <tr>
+        <td><i class="fa fa-home" aria-hidden="true"></td>
+        <td><h5><div><%= @user.city %></div></h5></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-user" aria-hidden="true"></i></td>
+        <td><h5><div><%= @user.contact_info %></div></h5></td>
+      </tr>
+      <% if @user.description.present? %>
+        <tr>
+          <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
+          <td><h5><div><%= @user.description %></div></h5></td>
+        </tr>
+      <% end %>
+      <% if @user.delivery == true %>
+        <tr>
+          <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
+          <td><h5>delivery available</h5></td>
+        </tr>
+      <% end %>
+      <% if @user.delivery == true && @user.delivery_discription.present? %>
+        <tr>
+          <td><i class="fa fa-truck" aria-hidden="true"></i></td>
+          <td><h5><%= @user.delivery_discription %></h5></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="moving-wrapper">
+      <% @items.each do |item| %>
+          <div class="post-wrapper" style="cursor: pointer;" onclick="window.location='<%= user_item_path(params[:id],item) %>';">
+              <h4><small><%= item.title %></small></h4>
+
+              <%= cl_image_tag item.photo, class: "items-photo" %>
+
+              <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+          </div>
+      <% end unless @items.nil?%>
+  </div>
+
+ </div>
+
+<!-- MOBILE -->
+<div class="container ">
+  <div class="mobile-wrapper hidden-md hidden-lg">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="mobile-bio-wrapper text-center">
+          <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+
+
+          <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+          <table>
+            <tr>
+              <td><i class="fa fa-home" aria-hidden="true"></td>
+              <td><h5><div><%= @user.city %></div></h5></td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-user" aria-hidden="true"></i></td>
+              <td><h5><div><%= @user.contact_info %></div></h5></td>
+            </tr>
+            <% if @user.description.present? %>
+              <tr>
+                <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
+                <td><h5><div><%= @user.description %></div></h5></td>
+              </tr>
+            <% end %>
+            <% if @user.delivery == true %>
+              <tr>
+                <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
+                <td><h5>delivery available</h5></td>
+              </tr>
+            <% end %>
+            <% if @user.delivery == true && @user.delivery_discription.present? %>
+              <tr>
+                <td><i class="fa fa-truck" aria-hidden="true"></i></td>
+                <td><h5><%= @user.delivery_discription %></h5></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <% @items.each do |item| %>
+          <div class="post-wrapper-mobile">
+            <%= link_to user_item_path(item) , style:"text-decoration: none;" do %>
+              <h4><small><%= item.title %></small></h4>
+
+              <%= cl_image_tag item.photo, class: "items-photo" %>
+
+              <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+            <% end %>
+          </div>
+        <% end unless @items.nil?%>
+      </div>
+    </div>
+  </div>
 </div>
