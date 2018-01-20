@@ -36,22 +36,22 @@
 
 
 <% @items.each_with_index do |item, value| %>
-<div class="col-md-4 card-show" id="card-holder-<%= value + 1  %>">
-  <div class="place-card">
-    <div class="card-image">
-      <% if item.photos.present? %>
-      <%= cl_image_tag item.photos.first.path, :transformation=>[
-        {:width=>400, :height=>300, :crop=>"thumb"}], class: "item-avatar" %>
-      <% else %>
-        <%= image_tag "non-ava", class: "item-avatar" %>
-      <% end %>
-      <div class="card-info" data-id="<%= value + 1  %>">
-        <div class="card-title">
-          <h4><%= item.title %></h4>
-          <p>Category &nbsp;:&nbsp;<%= item.category %></p>
+  <%= link_to user_item_path(item.user, item) do %>
+    <div class="col-md-4 card-show" id="card-holder-<%= value + 1  %>">
+      <div class="place-card">
+        <div class="card-image">
+          <% if item.photo.present? %>
+          <%= cl_image_tag item.photo.first.path, :transformation=>[
+            {:width=>400, :height=>300, :crop=>"thumb"}], class: "item-avatar" %>
+          <% end %>
+          <div class="card-info" data-id="<%= value + 1  %>">
+            <div class="card-title">
+              <h4><%= item.title %></h4>
+              <p>Type &nbsp;:&nbsp;<%= item.item_type %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  <% end %>
 <% end %>
