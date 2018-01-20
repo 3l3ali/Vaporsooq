@@ -6,7 +6,7 @@ var GA_LOCAL_STORAGE_KEY = 'ga:clientId';
 
 
 if (window.localStorage) {
-    ga('create', <%=   env["GOOGLE_ANAL_API"] %>, {
+    ga('create', <%=ENV["GOOGLE_ANAL_API"] %>, {
         'storage': 'none',
         'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
     });
@@ -14,7 +14,7 @@ if (window.localStorage) {
         localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
     });
 } else {
-    ga('create',<%=   env["GOOGLE_ANAL_API"] %>, 'auto');
+    ga('create',<%=ENV["GOOGLE_ANAL_API"] %>, 'auto');
 }
 
 var GA_LOCAL_STORAGE_KEY = 'ga:clientId', userId = false;
