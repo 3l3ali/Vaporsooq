@@ -12,11 +12,11 @@
           <!-- <input type="text" class="form-control" placeholder="Search"> -->
         <%= f.search_field :title_cont , placeholder: "e.a revenger x", class:"form-control"%>
         </div>
-        <%= f.select :user_city_eq, User.cities.to_a.map { |w| [w[0].humanize, w[1]] },
+        <%= f.select :user_city_eq, User.cities_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
                                 {:prompt => "location"}, class:"btn search-btn" %>
-        <%= f.select :item_type_eq, Item.item_types.to_a.map { |w| [w[0].humanize, w[1]] },
+        <%= f.select :item_type_eq, Item.item_type_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
                                {:prompt => "Type"}, class:"btn search-btn" %>
-        <%= f.select :condition_eq, Item.conditions.to_a.map { |w| [w[0].humanize, w[1]] },
+        <%= f.select :condition_eq, Item.condition_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
                                {:prompt => "condition"}, class:"btn search-btn" %>
         <%#= f.label :city %>
         <%#= f.search_field :user_city_cont %>
