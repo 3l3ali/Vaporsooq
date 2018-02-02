@@ -60,12 +60,13 @@ body{
 // CARDS
 
 .card {
-  height: 250px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  margin-bottom: 30px;
 }
 .card-user {
   position: absolute;
@@ -111,7 +112,7 @@ body{
 .cards-wrapper {
   padding: 50px;
   margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: -50px;
 }
 .best-sellers {
   hr {
