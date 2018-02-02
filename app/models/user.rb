@@ -28,4 +28,8 @@ class User < ApplicationRecord
     Maan: 10,
     Mafraq:11
   }
+
+  def self.cities_for_select
+    cities.to_a.unshift(["anywhere",""])
+  end
 end
