@@ -16,4 +16,5 @@ $(document).ready(function(){
   } else {
     $('.user_delivery_discription').hide();
   }
+
 });
