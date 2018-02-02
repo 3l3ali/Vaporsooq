@@ -23,4 +23,12 @@ class Item < ApplicationRecord
     Used: 1
   }
 
+  def self.item_type_for_select
+    item_types.to_a.unshift(["all",""])
+  end
+
+  def self.condition_for_select
+    conditions.to_a.unshift(["all",""])
+  end
+
 end
