@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :item_type , presence: true
   validates :description , presence: true
   validates :condition , presence: true
+  validates :photo , presence: true
 
 
    enum item_type: {

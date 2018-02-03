@@ -1,52 +1,95 @@
 
 <div class="container">
+  <!-- FORM FOR DESTKOP -->
   <div class="row">
     <div class="col-xs-12">
-  <%= search_form_for @q , url: explore_path , class:"navbar-form navbar-left" do |f| %>
+      <div class="search-wrapper text-center hidden-xs">
+        <%= search_form_for @q , url: explore_path , class:"navbar-form" do |f| %>
+          <%#= f.select :user_city_eq, options_for_select(User.cities.keys) %>
+          <%#= f.select :item_type_eq, options_for_select(Item.item_types.keys) %>
+          <%#= f.select :condition_eq, options_for_select(Item.conditions.keys) %>
+          <!-- <input type="text" class="form-control" placeholder="Search"> -->
 
-    <%#= f.select :user_city_eq, options_for_select(User.cities.keys) %>
-    <%#= f.select :item_type_eq, options_for_select(Item.item_types.keys) %>
-    <%#= f.select :condition_eq, options_for_select(Item.conditions.keys) %>
-            <!-- <input type="text" class="form-control" placeholder="Search"> -->
-      <div class="search-wrapper text-center">
-        <div class="form-group">
-        <%= f.search_field :title_cont , placeholder: "e.a revenger x", class:"form-control"%>
-        </div>
-        <%= f.select :user_city_eq, User.cities_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
-                                {:prompt => "location"}, class:"btn search-btn" %>
-        <%= f.select :item_type_eq, Item.item_type_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
-                               {:prompt => "Type"}, class:"btn search-btn" %>
-        <%= f.select :condition_eq, Item.condition_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
-                               {:prompt => "condition"}, class:"btn search-btn" %>
-        <%#= f.label :city %>
-        <%#= f.search_field :user_city_cont %>
+          <%= f.search_field :title_cont , placeholder: "e.a revenger x", class:"form-control"%>
 
-      <%#= sort_link(@q, :user_city, 'Last Name', default_order: :desc) %>
-        <%= f.submit value:"search", class:"btn search-btn-2" %>
+
+
+            <%= f.select :user_city_eq, User.cities_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+                                    {:prompt => "location"}, class:"form-control btn search-btn" %>
+            <%= f.select :item_type_eq, Item.item_type_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+                                   {:prompt => "Type"}, class:"form-control btn search-btn" %>
+            <%= f.select :condition_eq, Item.condition_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+
+                                   {:prompt => "condition"}, class:"form-control btn search-btn" %>
+
+            <%#= f.label :city %>
+            <%#= f.search_field :user_city_cont %>
+            <%#= sort_link(@q, :user_city, 'Last Name', default_order: :desc) %>
+
+            <%#= f.submit value:"search", class:"btn search-btn-2" %>
+            <%= button_tag type: 'submit' ,class:"form-control btn search-btn-2" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- FORM FOR MOBILE ONLY -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="search-wrapper-mob text-center visible-xs">
+        <%= search_form_for @q , url: explore_path , class:"navbar-form-mob" do |f| %>
+
+          <div class="collapse-wrapper">
+            <%= f.search_field :title_cont , placeholder: "e.a revenger x", class:"form-control"%>
+            <i class="fas fa-ellipsis-v form-control" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
+          </div>
+
+              <div  class="collapse text-center" id="collapseExample">
+
+            <%= f.select :user_city_eq, User.cities_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+                                    {:prompt => "location"}, class:"form-control btn search-btn" %>
+            <%= f.select :item_type_eq, Item.item_type_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+                                   {:prompt => "Type"}, class:"form-control btn search-btn" %>
+            <%= f.select :condition_eq, Item.condition_for_select.to_a.map { |w| [w[0].humanize, w[1]] },
+
+                                   {:prompt => "condition"}, class:"form-control btn search-btn" %>
+             </div>
+            <%= button_tag type: 'submit' ,class:"form-control btn search-btn-2" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
         <% end %>
       </div>
     </div>
   </div>
   <div class="row">
-  <% @items.each_with_index do |item, value| %>
-    <%= link_to user_item_path(item.user, item) do %>
-      <div class="col-xs-12 col-md-4 card-show" id="card-holder-<%= value + 1  %>">
-        <div class="place-card">
-          <div class="card-image">
-            <% if item.photo.present? %>
-            <%= cl_image_tag item.photo, :transformation=>[
-              {:width=>180, :height=>100, :crop=>"thumb"}], class: "item-avatar" %>
-            <% end %>
-            <div class="card-info" data-id="<%= value + 1  %>">
-              <div class="card-title">
-                <h4><%= item.title %></h4>
-                <p>Type &nbsp;:&nbsp;<%= item.item_type %></p>
+    <div class="explore-wrapper">
+
+      <% @items.each_with_index do |item, value| %>
+        <%= link_to user_item_path(item.user, item) do %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card">
+              <% if item.photo.present? %>
+                <%= cl_image_tag item.photo, :transformation=>[
+                  {:width=>600, :height=>300, :crop=>"thumb"}] ,class:"card-background" %>
+              <% end %>
+              <div class="card-ribbon"><%= item.item_type.capitalize() %></div>
+              <div class="card-description">
+                <h2><%= item.title %></h2>
+                <p><%= item.price %></p>
               </div>
+              <%= cl_image_tag item.user.photo, class:"card-user" %>
+              <a class="card-link" href="<%= user_item_path(item.user,item) %>" ></a>
             </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
     </div>
+  </div>
+
+
 </div>
+
+
+
+
