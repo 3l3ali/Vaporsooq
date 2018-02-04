@@ -9,7 +9,6 @@ $(document).ready(function(){
     }
   });
   var checked = document.getElementById("user_delivery").checked;
-      console.log(checked);
 
   if(checked) {
     $('.user_delivery_discription').show();

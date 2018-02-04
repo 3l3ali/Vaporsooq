@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def update        # PATCH /items/:id
     if @item.update(item_params)
-      redirect_to user_item_path(@item)
+      redirect_to user_item_path(current_user,@item)
     else
       render 'edit'
     end

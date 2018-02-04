@@ -12,6 +12,7 @@
       <!-- Links when logged in -->
       <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Explore", explore_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Sell Item", new_user_item_path(current_user), class: "navbar-wagon-item navbar-wagon-link signup-home" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -42,8 +43,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link signup-home" %>
+      <%= link_to "Shop", explore_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Sign In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link signup-home" %>
     <% end %>
   </div>
 
@@ -55,11 +57,12 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Explore", explore_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to "Sell Item", new_user_item_path(current_user) %></li>
           <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Settings", edit_user_registration_path %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Log In", new_user_session_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <% end %>
       </ul>
