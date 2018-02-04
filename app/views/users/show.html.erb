@@ -16,7 +16,11 @@
 <div class="show-wrapper hidden-xs hidden-sm">
   <div class="bio-wrapper">
     <div class="bio-image text-center">
-      <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+      <% if @user.photo.present? %>
+        <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+      <% else %>
+        <%= image_tag "user.png" %>
+      <% end %>
     </div>
     <div class="bio-name text-center">
       <h4><%= @user.first_name %> <%= @user.last_name %> </h4>
@@ -70,7 +74,11 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="mobile-bio-wrapper text-center">
-          <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+          <% if @user.photo.present? %>
+            <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
+          <% else %>
+            <%= image_tag "user.png" %>
+          <% end %>
 
 
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
