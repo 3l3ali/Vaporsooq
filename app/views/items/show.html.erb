@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 ">
+      <div class="item-wrapper text-center">
+        <h2 class="text-center"><smaller><%= @item.title%></smaller></h2>
+        <% if @item.photo.present? %>
+          <%= cl_image_tag @item.photo, :transformation =>[{:width=>600, :height=>200, :crop=>"thumb"}], class:"item-photo" %>
+        <% end %>
+        <div class="inner-wrapper">
+          <div class="flex-items">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="item-profile-wrapper">
+        <div class="text-center">
+          <% if @item.photo.present? %>
+            <%= cl_image_tag @item.user.photo, class:"item-avatar" %>
+          <% else %>
+            <%= image_tag "https://unsplash.it/100/100" , class: "avatar" %>
+          <% end %>
+        </div>
+        <hr>
+
+      <div class="bio-name text-center">
+        <h4><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+      </div>
+      <table class="item-table">
+        <tr>
+          <td><i class="fa fa-home" aria-hidden="true"></td>
+          <td><h5><%= @item.user.city %></h5></td>
+        </tr>
+        <tr>
+          <td><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td><h5><%= @item.user.contact_info %></h5></td>
+        </tr>
+        <% if @item.user.description.present? %>
+          <tr>
+            <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
+            <td><h5><%= @item.user.description %></h5></td>
+          </tr>
+        <% end %>
+        <% if @item.user.delivery == true %>
+          <tr>
+            <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
+            <td><h5>delivery available</h5></td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
