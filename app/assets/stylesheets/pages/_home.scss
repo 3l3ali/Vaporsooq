@@ -70,6 +70,9 @@ body{
   overflow: hidden;
   border-radius: 8px;
 }
+.card-nader{
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url('NS-bg.jpg');
+}
 .card-user {
   position: absolute;
   right: 10px;
