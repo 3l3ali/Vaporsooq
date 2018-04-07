@@ -1,55 +1,45 @@
+<div class="item-wrapper">
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-8 ">
-      <div class="item-wrapper text-center">
-        <h2 class="text-center"><smaller><%= @item.title%></smaller></h2>
-        <% if @item.photo.present? %>
-          <%= cl_image_tag @item.photo, :transformation =>[{:width=>600, :height=>200, :crop=>"thumb"}], class:"item-photo" %>
+    <div class="col-xs-12 col-md-6">
+      <div >
+      <% if @item.photo.present? %>
+          <%= cl_image_tag @item.photo, class:"item-photo" %>
         <% end %>
-        <div class="inner-wrapper">
-          <div class="flex-items">
-          </div>
-        </div>
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-4">
-      <div class="item-profile-wrapper">
-        <div class="text-center">
-          <% if @item.photo.present? %>
-            <%= cl_image_tag @item.user.photo, class:"item-avatar" %>
-          <% else %>
-            <%= image_tag "https://unsplash.it/100/100" , class: "avatar" %>
-          <% end %>
-        </div>
+      <div class="col-xs-12 col-md-6">
+        <h1 class="item_name text-center"><%= @item.title %></h1>
         <hr>
+        <div class="attr">
+          <h3 class="item-attr">Type: <%= @item.item_type %> </h3>
+          <h3 class="item-attr">Condition: <%= @item.condition %> </h3>
+          <h3 class="item-attr">Price: <%= @item.price.to_f / 100 %> JD </h3>
+        </div>
 
-      <div class="bio-name text-center">
-        <h4><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+        <div class="description">
+          <ul class="tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#description_item" aria-controls="description_item" role="tab" data-toggle="tab">Following</a></li>
+            <li role="presentation"><a href="#user_info" aria-controls="user_info" role="tab" data-toggle="tab">user_info</a></li>
+          </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="description_item">item desc</div>
+          <div role="tabpanel" class="tab-pane" id="user_info">user info</div>
+        </div>
+
+       <!--  <div class="description">
+          <ul class="tabs">
+            <li>dde</li>
+            <li>fdf</li>
+            <li>dfd</li>
+            <li>dfdf</li>
+          </ul>
+        </div> -->
       </div>
-      <table class="item-table">
-        <tr>
-          <td><i class="fa fa-home" aria-hidden="true"></td>
-          <td><h5><%= @item.user.city %></h5></td>
-        </tr>
-        <tr>
-          <td><i class="fa fa-user" aria-hidden="true"></i></td>
-          <td><h5><%= @item.user.contact_info %></h5></td>
-        </tr>
-        <% if @item.user.description.present? %>
-          <tr>
-            <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
-            <td><h5><%= @item.user.description %></h5></td>
-          </tr>
-        <% end %>
-        <% if @item.user.delivery == true %>
-          <tr>
-            <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
-            <td><h5>delivery available</h5></td>
-          </tr>
-        <% end %>
-      </table>
-      </div>
-    </div>
   </div>
+</div>
 </div>

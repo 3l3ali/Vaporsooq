@@ -1,11 +1,11 @@
 .item-wrapper {
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   // border-bottom: 1px solid #ccc;
-  border-radius: 7px;
+  // border-radius: 7px;
   padding: 7px 10px;
-  background-color: white;
+  // background-color: white;
   margin-top: 15px;
-  box-shadow: 3px 3px 3px #36506C;
+  // box-shadow: 3px 3px 3px #36506C;
   margin-bottom: 70px;
   margin-top: 50px;
   height: 100vh;
@@ -23,18 +23,92 @@
 
 }
 
+
+
 .flex-items {
   display: flex;
   justify-content: space-around;
 
 }
 
+.item_name {
+    font-family: 'p22-underground', sans-serif;
+    font-size: 38px;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: #676767;
+    display: block;
+    letter-spacing: 2px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0 auto 15px;
+    clear: both;
+    font-weight: normal;
+    padding-top: 4px;
+}
+
+.attr {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.item-attr {
+    font-family: 'p22-underground', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #676767;
+}
+
 .item-photo {
-  width: 95%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
   border-radius: 7px;
   // display: center;
 }
+
+.description {
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    word-break: break-word;
+}
+
+ul.tabs {
+    display: block;
+    margin: 25px 0;
+    border-bottom: solid 1px #cccccc;
+    border-top: 0;
+    list-style: none outside;
+    margin-left: 0;
+    text-transform: uppercase;
+    padding-left: 0;
+  }
+
+  ul.tabs li a.active {
+    border-bottom: solid 3px #cccccc;
+    background-color: #ffffff;
+    border-bottom: solid 3px #aaaaaa;
+    height: 31px;
+    position: relative;
+    border-right-width: 1px;
+    color: #676767;
+}
+
+
+/* Style the tab content */
+// .tabcontent {
+//     display: none;
+//     padding: 6px 12px;
+//     border: 1px solid #ccc;
+//     border-top: none;
+// }
+////////////////////
 
 .item-profile-wrapper {
   border: 1px solid #ccc;
