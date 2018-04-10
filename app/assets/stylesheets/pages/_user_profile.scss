@@ -27,8 +27,11 @@
   }
   table {
     width: 60%;
-    margin-left: 37%;
+    margin-left: 28%;
     margin-top: 20px;
+    td {
+      width: 50%;
+    }
   }
 }
 .moving-wrapper {
