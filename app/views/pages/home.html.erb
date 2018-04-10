@@ -112,7 +112,11 @@
             <p>NS Coils</p>
           </div>
           <%= image_tag "NS-logo.jpg", class:"card-user" %>
-          <a class="card-link" href="www.vaporsooq.com/users/6" ></a>
+          <% if @nader.nil? %>
+            <a class="card-link" href="#" ></a>
+          <% else %>
+            <a class="card-link" href="<%= user_path(@nader) %>" ></a>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -123,7 +127,12 @@
             <p>VGOD representative</p>
           </div>
           <%= image_tag "rami-logo.png", class:"card-user" %>
-          <a class="card-link" href="www.vaporsooq.com/users/7" ></a>
+          <% if @rami.nil? %>
+            <a class="card-link" href="#" ></a>
+          <% else %>
+            <a class="card-link" href="<%= user_path(@rami) %>" ></a>
+          <% end %>
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -134,7 +143,11 @@
             <p>Vape Supplies</p>
           </div>
           <%= image_tag "rashed-logo.jpg", class:"card-user" %>
-          <a class="card-link" href="www.vaporsooq.com/users/5" ></a>
+          <% if @rashed.nil? %>
+            <a class="card-link" href="#" ></a>
+          <% else %>
+            <a class="card-link" href="<%= user_path(@rashed) %>" ></a>
+          <% end %>
         </div>
       </div>
     </div>
