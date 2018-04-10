@@ -41,15 +41,22 @@
     </table>
   </div>
   <div class="moving-wrapper">
-      <% @items.each do |item| %>
-          <div class="post-wrapper" style="cursor: pointer;" onclick="window.location='<%= user_item_path(params[:id],item) %>';">
-              <h4><small><%= item.title %></small></h4>
+      <% if @items.count.zero? %>
+        <div class="no-items text-center">
+          <small><h1>No Items For Sale Here! Yet!</h1></small>
+          <h1><i class="far fa-smile"></i></h1>
+        </div>
+      <% else %>
+        <% @items.each do |item| %>
+            <div class="post-wrapper" style="cursor: pointer;" onclick="window.location='<%= user_item_path(params[:id],item) %>';">
+                <h4><small><%= item.title %></small></h4>
 
-              <%= cl_image_tag item.photo, class: "items-photo" %>
+                <%= cl_image_tag item.photo, class: "items-photo" %>
 
-              <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
-          </div>
-      <% end unless @items.nil?%>
+                <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+            </div>
+        <% end %>
+      <% end %>
   </div>
 
  </div>
@@ -100,17 +107,24 @@
       </div>
 
       <div class="col-xs-12">
-        <% @items.each do |item| %>
-          <div class="post-wrapper-mobile">
-            <%= link_to user_item_path(item) , style:"text-decoration: none;" do %>
-              <h4><small><%= item.title %></small></h4>
-
-              <%= cl_image_tag item.photo, class: "items-photo" %>
-
-              <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
-            <% end %>
+        <% if @items.count.zero? %>
+          <div class="no-items-mobile text-center">
+            <small><h1>No Items For Sale Here! Yet!</h1></small>
+            <h1><i class="far fa-smile"></i></h1>
           </div>
-        <% end unless @items.nil?%>
+        <% else %>
+          <% @items.each do |item| %>
+            <div class="post-wrapper-mobile">
+              <%= link_to user_item_path(item) , style:"text-decoration: none;" do %>
+                <h4><small><%= item.title %></small></h4>
+
+                <%= cl_image_tag item.photo, class: "items-photo" %>
+
+                <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
