@@ -4,7 +4,7 @@
     <div class="col-xs-12 col-md-6">
       <div >
       <% if @item.photo.present? %>
-          <%= cl_image_tag @item.photo, class:"item-photo" %>
+          <%= cl_image_tag @item.photo, class:"item-photo", id:"main_img", :data => { :imagezoom => "true" } %>
         <% end %>
       </div>
     </div>
@@ -13,33 +13,78 @@
         <h1 class="item_name text-center"><%= @item.title %></h1>
         <hr>
         <div class="attr">
-          <h3 class="item-attr">Type: <%= @item.item_type %> </h3>
-          <h3 class="item-attr">Condition: <%= @item.condition %> </h3>
-          <h3 class="item-attr">Price: <%= @item.price.to_f / 100 %> JD </h3>
+          <h3 class="item-attr">Type <span class="item-attr-box"><%= @item.item_type %></span> </h3>
+          <h3 class="item-attr">Condition <span class="item-attr-box"><%= @item.condition %></span> </h3>
+          <h3 class="item-attr">Price <span class="item-attr-box"><%= @item.price.to_f / 100 %> JD </span></h3>
         </div>
 
-        <div class="description">
+ <!--        <div class="description">
           <ul class="tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#description_item" aria-controls="description_item" role="tab" data-toggle="tab">Following</a></li>
+            <li role="presentation" class="active"><a href="#description_item" aria-controls="description_item" role="tab" data-toggle="tab">description</a></li>
             <li role="presentation"><a href="#user_info" aria-controls="user_info" role="tab" data-toggle="tab">user_info</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- Tab panes -->
-        <div class="tab-content">
+    <!--     <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="description_item">item desc</div>
           <div role="tabpanel" class="tab-pane" id="user_info">user info</div>
-        </div>
-
-       <!--  <div class="description">
-          <ul class="tabs">
-            <li>dde</li>
-            <li>fdf</li>
-            <li>dfd</li>
-            <li>dfdf</li>
-          </ul>
         </div> -->
+
+        <hr>
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs my-tabs nav-justified" role="tablist">
+    <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">description</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Seller information</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="description"> <p class="font-description text-center"><%= @item.description %></p></div>
+
+    <div role="tabpanel" class="tab-pane fade" id="profile">
+        <h4 class="font-description text-center"><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+      <table class="item-table ">
+        <tr>
+          <td><i class="fa fa-home" aria-hidden="true"></td>
+          <td><h5><%= @item.user.city %></h5></td>
+        </tr>
+        <tr>
+          <td><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td><h5><%= @item.user.contact_info %></h5></td>
+        </tr>
+        <% if @item.user.description.present? %>
+          <tr>
+            <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
+            <td><h5><%= @item.user.description %></h5></td>
+          </tr>
+        <% end %>
+        <% if @item.user.delivery == true %>
+          <tr>
+            <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i>&nbsp;&nbsp;</td>
+            <td><h5>delivery available</h5></td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
       </div>
   </div>
 </div>
 </div>
+
+<!-- <script>
+$("#main_img").elevateZoom({
+  zoomType        : "inner"
+});
+</script>
+ -->
