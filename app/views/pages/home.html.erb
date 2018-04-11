@@ -112,11 +112,11 @@
             <p>NS Coils</p>
           </div>
           <%= image_tag "NS-logo.jpg", class:"card-user" %>
-          <!-- <#% if @nader.nil? %> -->
+          <% if @nader.nil? %>
             <a class="card-link" href="#" ></a>
-          <!-- <#% else %> -->
-            <!-- <a class="card-link" href="<#%= user_path(@nader) %>" ></a> -->
-          <!-- <#% end %> -->
+          <% else %>
+            <a class="card-link" href="<%= user_path(@nader) %>" ></a>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -127,11 +127,11 @@
             <p>VGOD representative</p>
           </div>
           <%= image_tag "rami-logo.png", class:"card-user" %>
-          <!-- <#% if @rami.nil? %> -->
+          <% if @rami.nil? %>
             <a class="card-link" href="#" ></a>
-          <!-- <#% else %> -->
-            <!-- <a class="card-link" href="<#%= user_path(@rami) %>" ></a> -->
-          <!-- <#% end %> -->
+          <% else %>
+            <a class="card-link" href="<%= user_path(@rami) %>" ></a>
+          <% end %>
 
         </div>
       </div>
@@ -143,11 +143,11 @@
             <p>Vape Supplies</p>
           </div>
           <%= image_tag "rashed-logo.jpg", class:"card-user" %>
-          <!-- <#% if @rashed.nil? %> -->
+          <% if @rashed.nil? %>
             <a class="card-link" href="#" ></a>
-          <!-- <#% else %> -->
-            <!-- <a class="card-link" href="<#%= user_path(@rashed) %>" ></a> -->
-          <!-- <#% end %> -->
+          <% else %>
+            <a class="card-link" href="%= user_path(@rashed) %>" ></a>
+          <% end %>
         </div>
       </div>
     </div>
