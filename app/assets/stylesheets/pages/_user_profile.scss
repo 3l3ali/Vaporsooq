@@ -31,6 +31,9 @@
     margin-top: 20px;
     td {
       width: 50%;
+      h5{
+        line-height: 1.6;
+      }
     }
   }
 }
@@ -129,9 +132,13 @@
     margin-bottom: 5%;
   }
   table {
+    margin: 0 auto;
     width: 60%;
     tr > td {
       width:50%;
+      h5{
+        line-height: 1.6;
+      }
     }
     margin: 10% auto;
   }
