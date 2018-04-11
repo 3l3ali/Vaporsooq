@@ -20,9 +20,11 @@ class ItemsController < ApplicationController
   end
 
   def edit          # GET /items/:id/edit
+    redirect_to root_path unless @item.user == current_user
   end
 
   def update        # PATCH /items/:id
+    redirect_to root_path unless @item.user == current_user
     if @item.update(item_params)
       redirect_to user_item_path(current_user,@item)
     else
@@ -31,8 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy       # DELETE /items/:id
+    redirect_to root_path unless @item.user == current_user
     @item.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   private

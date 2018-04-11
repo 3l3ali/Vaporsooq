@@ -54,6 +54,12 @@
                 <%= cl_image_tag item.photo, class: "items-photo" %>
 
                 <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+
+                <% if @user == current_user %>
+                  <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                <% end %>
             </div>
         <% end %>
       <% end %>
@@ -121,6 +127,11 @@
                 <%= cl_image_tag item.photo, class: "items-photo" %>
 
                 <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+                <% if @user == current_user %>
+                  <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           <% end %>
