@@ -78,7 +78,6 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    elevatezoom-rails (1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -228,7 +227,6 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   cloudinary
   devise
-  elevatezoom-rails
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
