@@ -54,6 +54,12 @@
                 <%= cl_image_tag item.photo, class: "items-photo" %>
 
                 <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+
+                <% if @user == current_user %>
+                  <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                <% end %>
             </div>
         <% end %>
       <% end %>
@@ -66,7 +72,9 @@
   <div class="mobile-wrapper hidden-md hidden-lg">
     <div class="row">
       <div class="col-xs-12">
-        <div class="mobile-bio-wrapper text-center">
+        <div class="mobile-bio-wrapper">
+          <div class="text-center">
+
           <% if @user.photo.present? %>
             <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
           <% else %>
@@ -75,6 +83,7 @@
 
 
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+          </div>
           <table>
             <tr>
               <td><i class="fa fa-home" aria-hidden="true"></td>
@@ -121,6 +130,11 @@
                 <%= cl_image_tag item.photo, class: "items-photo" %>
 
                 <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+                <% if @user == current_user %>
+                  <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           <% end %>
