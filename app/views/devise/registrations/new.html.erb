@@ -22,6 +22,55 @@
               <%= f.input :delivery_discription ,placeholder:"i deliver to amman for free, other cities for 3jds.",label:"Delivery description" %>
               <%= f.input :photo, label:"Profile picture" %>
               <%= f.input :photo_cache, as: :hidden %>
+              <%= f.check_box :terms_of_service %>
+              <!-- Button trigger modal -->
+              <button type="button" class="" data-toggle="modal" data-target="#myModal">
+                Terms and Conditions
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title text-center" id="myModalLabel">Terms and Conditions</h4>
+                    </div>
+                    <div class="modal-body">
+                      <ul>
+                      <li>I acknowledge and agree that any item sold on this website is the responsibility of the seller and vaporsooq does not guarantee any of its credibility.<br></li>
+
+                      <li>Any defects or problems occurred in the items sold on vaporsooq is of the responsibility of the seller.<br></li>
+
+                      <li>I fully acknowledge that any item sold on vaporsooq entered Jordan for personal use, all items must have been checked and agreed by the Jordanian government and any failure to do so is of the reasonability of the seller.<br></li>
+
+                      <li>I acknowledge and agree that this site is for people who are above the age of 18.<br></li>
+
+                      <li>I acknowledge and agree that nicotine is an addictive substance and contains chemicals that are harmful.<br></li>
+
+                      <li>I acknowledge and agree that vaporsooq does not guarantee the identity of the sellers and does not guarantee the quality of any items sold or traded on vaporsooq.<br></li>
+
+                      <li>Vaporsooq is simply a site used as alternative of Facebook for trading any vape items that entered Jordan for personal use.<br></li>
+
+                      <li>As a seller you guarantee you entered vape items in Jordan legally and was checked by the Jordanian customs and passed, any failure to do so is the responsibility of the seller.<br></li>
+
+                      <li>As a seller you guarantee that any vape items posted does not contain any defects, any failure to do so is the responsibility of the seller.<br></li>
+
+                      <li>Any item sold or traded is the responsibility of the seller and vaporsooq does not hold any responsibility for any legal allegations.<br></li>
+
+                      <li>I acknowledge that vape devices use Li-ion batteries which have had reports of explosions due to misuse or miscarriage, any harm done by them is the responsibility of the seller and buyer and vaporsooq does not hold any responsibility.<br></li>
+
+                      <li>Vaporsooq does not hold any responsibility for anything sold or traded or any legal allegations.</li>
+                    </ul>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
 
