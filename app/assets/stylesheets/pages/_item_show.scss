@@ -25,7 +25,25 @@
 
 .font-description {
     font-family: 'p22-underground', sans-serif;
-    font-size: 38px;
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    color: #676767;
+    display: block;
+    letter-spacing: 2px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0 auto 15px;
+    clear: both;
+    font-weight: normal;
+    padding-top: 4px;
+}
+
+.font-seller-name {
+    font-family: 'p22-underground', sans-serif;
+    font-size: 33px;
     font-weight: normal;
     font-style: normal;
     line-height: 1.5;
