@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :city, presence: true
   validates :contact_info, presence: true
+  validates :terms_of_service, acceptance: true
 
 
   enum user_type: {
