@@ -76,8 +76,8 @@
               <% end %>
               <div class="card-ribbon"><%= item.item_type.capitalize() %></div>
               <div class="card-description">
-                <h2><%= item.title %></h2>
-                <p><%= item.price %></p>
+                <h2 class="h2-title"><%= item.title %></h2>
+                <p class="p-price"><%= item.price %>JDs</p>
               </div>
               <% if item.user.photo.present? %>
                 <%= cl_image_tag item.user.photo, class:"card-user" %>
