@@ -11,12 +11,23 @@
       </div>
 
         <div class="col-xs-12 col-md-6">
+          <% if @user == current_user %>
+            <div class="edit-delete text-right">
+              <%= link_to edit_user_item_path(current_user,@item) do %>
+                <i class="fas fa-edit" style="color:#3C6FA5;"></i>
+              <% end %>
+              &nbsp;
+              <%= link_to user_item_path(current_user,@item), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fas fa-trash-alt" style="color:#f44336;"></i>
+              <% end %>
+            </div>
+          <% end %>
           <h1 class="item_name text-center"><%= @item.title %></h1>
           <hr>
           <div class="attr">
             <h3 class="item-attr">Type <span class="item-attr-box"><%= @item.item_type %></span> </h3>
             <h3 class="item-attr">Condition <span class="item-attr-box"><%= @item.condition %></span> </h3>
-            <h3 class="item-attr">Price <span class="item-attr-box"><%= @item.price.to_f / 100 %> JD </span></h3>
+            <h3 class="item-attr">Price <span class="item-attr-box"><%= @item.price.to_f%> JD </span></h3>
           </div>
           <hr>
 
