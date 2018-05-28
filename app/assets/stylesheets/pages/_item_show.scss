@@ -141,6 +141,11 @@ ul.my-tabs {
       color: #36506C;
     }
 
+    &.active a {
+      background-color : #36506C !important;
+      color: #ffffff !important;
+    }
+
     & a:hover {
       background-color: #36506C;
       color: #F4F4F4;
@@ -246,50 +251,27 @@ ul.my-tabs {
   margin-bottom: 4%;
 }
 
-ul.transformer-tabs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-bottom: solid 1px #cccccc;
-    background: #F4F4F4;
-    border-top: 0;
-    list-style: none outside;
-    margin-left: 0;
-    text-transform: uppercase;
-    padding-left: 0;
+@media (max-width: 768px) {
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
   }
-
-  ul.transformer-tabs li {
-    display: inline-block;
-    padding: 0;
-    vertical-align: bottom;
-
-    border: 0;
-    list-style: none outside;
-    list-style-type: none;
-    list-style-position: outside;
-    list-style-image: initial;
-    margin-left: 0;
-
-    background-color:#36506C;
-
+  .nav-justified > li > a  {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 4px 4px 0 0 !important;
+    margin-bottom: 0 !important;
   }
-   ul.transformer-tabs li a {
-    display: inline-block;
-    // color: white;
-    text-decoration: none;
-    padding: 0.5rem;
-
-
-    &.active {
-    border-bottom: solid 3px #cccccc;
-    background-color: #ffffff;
-    border-bottom: solid 3px #aaaaaa;
-    height: 31px;
-    position: relative;
-    border-right-width: 1px;
-    color: #676767;
-
-    }
 }
 
+ul.mob-tab li {
+
+
+&.active a {
+
+  // border-bottom: none;
+  background-color: #36506C !important;
+  color: #ffffff !important;
+}
+
+
+}

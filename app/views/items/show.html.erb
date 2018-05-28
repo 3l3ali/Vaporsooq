@@ -97,7 +97,7 @@
           <div class="attr">
             <h3 class="item-attr">Type<br> <br><span class="item-attr-box"><%= @item.item_type %></span> </h3>
             <h3 class="item-attr">Condition<br> <br><span class="item-attr-box"><%= @item.condition %></span> </h3>
-            <h3 class="item-attr">Price <br> <br><span class="item-attr-box"><%= @item.price.to_f / 100 %> JD </span></h3>
+            <h3 class="item-attr">Price <br> <br><span class="item-attr-box"><%= @item.price %> JD </span></h3>
           </div>
           <hr>
     </div>
@@ -107,13 +107,14 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <!-- tabs-div -->
+
+<!-- tabs-div -->
           <div>
 
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs transformer-tabs" role="tablist">
+            <ul class="nav nav-tabs my-tabs nav-justified mob-tab" role="tablist">
               <li role="presentation" class="active"><a href="#description-mob" aria-controls="description" role="tab" data-toggle="tab">description</a></li>
-              <li role="presentation"><a href="#profile-mob" aria-controls="profile" role="tab" data-toggle="tab">Seller information</a></li>
+              <li role="presentation"><a href="#profile-mob" aria-controls="profile" role="tab" data-toggle="tab">information</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -148,6 +149,8 @@
 
             </div>
           </div> <!-- end of tabs-div -->
+
+
     </div>
   </div>
 </div>
