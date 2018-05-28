@@ -1,5 +1,5 @@
 <% content_for :meta_title do %>
-  VaporSooq - <%= @user.first_name %> <%= @user.last_name %>
+  VaporSooq - <%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %>
 <% end %>
 <!-- DESKTOP -->
 <div class="show-wrapper hidden-xs hidden-sm">
@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <div class="bio-name text-center">
-      <h4><%= @user.first_name %> <%= @user.last_name %> </h4>
+      <h4><%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %> </h4>
     </div>
     <table class="bio-table">
       <tr>
@@ -99,7 +99,7 @@
           <% end %>
 
 
-          <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+          <h4><%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %></h4>
           </div>
           <table>
             <tr>
