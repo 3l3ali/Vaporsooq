@@ -4,6 +4,13 @@
 <!-- DESKTOP -->
 <div class="show-wrapper hidden-xs hidden-sm">
   <div class="bio-wrapper">
+    <% if @user == current_user %>
+      <div class="text-right post-edit">
+        <%= link_to edit_user_registration_path do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+    <% end %>
     <div class="bio-image text-center">
       <% if @user.photo.present? %>
         <%= cl_image_tag(@user.photo, :quality=>71,:width=>1000, :height=>1000, :crop=>"scale") %>
