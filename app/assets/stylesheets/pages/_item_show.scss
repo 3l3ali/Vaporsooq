@@ -141,6 +141,11 @@ ul.my-tabs {
       color: #36506C;
     }
 
+    &.active a {
+      background-color : #36506C !important;
+      color: #ffffff !important;
+    }
+
     & a:hover {
       background-color: #36506C;
       color: #F4F4F4;
@@ -256,10 +261,6 @@ ul.my-tabs {
     border-radius: 4px 4px 0 0 !important;
     margin-bottom: 0 !important;
   }
-}
-
-ul.mob-tab {
-
 }
 
 ul.mob-tab li {
