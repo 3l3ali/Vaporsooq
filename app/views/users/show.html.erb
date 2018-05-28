@@ -83,6 +83,13 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="mobile-bio-wrapper">
+          <% if @user == current_user %>
+            <div class="text-right mobile-edit">
+              <%= link_to edit_user_registration_path do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </div>
+          <% end %>
           <div class="text-center">
 
           <% if @user.photo.present? %>
