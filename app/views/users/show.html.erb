@@ -1,5 +1,5 @@
 <% content_for :meta_title do %>
-  VaporSooq - <%= @user.first_name %> <%= @user.last_name %>
+  VaporSooq - <%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %>
 <% end %>
 <!-- DESKTOP -->
 <div class="show-wrapper hidden-xs hidden-sm">
@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <div class="bio-name text-center">
-      <h4><%= @user.first_name %> <%= @user.last_name %> </h4>
+      <h4><%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %> </h4>
     </div>
     <table class="bio-table">
       <tr>
@@ -83,6 +83,13 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="mobile-bio-wrapper">
+          <% if @user == current_user %>
+            <div class="text-right mobile-edit">
+              <%= link_to edit_user_registration_path do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </div>
+          <% end %>
           <div class="text-center">
 
           <% if @user.photo.present? %>
@@ -92,7 +99,7 @@
           <% end %>
 
 
-          <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+          <h4><%= @user.first_name.downcase.capitalize %> <%= @user.last_name.downcase.capitalize %></h4>
           </div>
           <table>
             <tr>
