@@ -48,7 +48,9 @@
               <div role="tabpanel" class="tab-pane fade in active" id="description"> <p class="font-description text-center"><%= @item.description %></p></div>
 
               <div role="tabpanel" class="tab-pane fade" id="profile">
-                <h4 class="font-seller-name text-center"><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+                <%= link_to user_path(@item.user) do %>
+                  <h4 class="font-seller-name text-center"><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+                <% end %>
                 <table class="item-table ">
                   <tr>
                     <td><i class="fa fa-home" aria-hidden="true"></td>
@@ -122,7 +124,9 @@
               <div role="tabpanel" class="tab-pane fade in active" id="description-mob"> <p class="font-description text-center"><%= @item.description %></p></div>
 
               <div role="tabpanel" class="tab-pane fade" id="profile-mob">
-                <h4 class="font-seller-name text-center"><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+                <%= link_to user_path(@item.user) do %>
+                  <h4 class="font-seller-name text-center"><%= @item.user.first_name %> <%= @item.user.last_name %> </h4>
+                <% end %>
                 <table class="item-table ">
                   <tr>
                     <td><i class="fa fa-home" aria-hidden="true"></td>
