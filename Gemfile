@@ -21,6 +21,8 @@ gem 'webpacker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
