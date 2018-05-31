@@ -10,12 +10,18 @@
           <% if @item.photo.present? %>
             <%= cl_image_tag @item.photo, class:"item-photo", id:"main_img" %>
           <% end %>
+          <% unless @item.stock %>
+            <%= image_tag "sold_out.png", class: "item-sold-out" %>
+          <% end %>
         </div>
       </div>
 
         <div class="col-xs-12 col-md-6">
           <% if @user == current_user %>
             <div class="edit-delete text-right">
+              <%= link_to edit_user_item_path(current_user,@item) do %>
+                <div class="btn btn-stock">Out Of Stock</div>
+              <% end %>
               <%= link_to edit_user_item_path(current_user,@item) do %>
                 <i class="fas fa-edit" style="color:#3C6FA5;"></i>
               <% end %>
@@ -93,6 +99,9 @@
       <% if @user == current_user %>
             <div class="edit-delete text-right " style="margin-top: 30px;">
               <%= link_to edit_user_item_path(current_user,@item) do %>
+                <div class="btn btn-stock">Out Of Stock</div>
+              <% end %>
+              <%= link_to edit_user_item_path(current_user,@item) do %>
                 <i class="fas fa-edit" style="color:#3C6FA5;"></i>
               <% end %>
               &nbsp;
@@ -101,9 +110,14 @@
               <% end %>
             </div>
           <% end %>
-      <% if @item.photo.present? %>
-        <%= cl_image_tag @item.photo, class:"item-photo-mobile" %>
-      <% end %>
+      <div class="div" style="position: relative;">
+        <% if @item.photo.present? %>
+          <%= cl_image_tag @item.photo, class:"item-photo-mobile" %>
+        <% end %>
+        <% unless @item.stock %>
+          <%= image_tag "sold_out.png", class: "item-sold-out-mob" %>
+        <% end %>
+      </div>
 
       <h1 class="item_name text-center"><%= @item.title %></h1>
       <hr>

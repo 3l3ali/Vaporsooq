@@ -12,6 +12,10 @@
           <%= f.input :condition, collection: Item.conditions.keys %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
+          <label for="stock">
+            Item Sold Out
+          </label>
+          <%= f.input :stock, label: "In Stock" %>
           <%= f.button :submit, class:"sign-up-btn" %>
         <% end %>
       </div>
