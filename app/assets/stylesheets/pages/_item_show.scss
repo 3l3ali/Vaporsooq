@@ -277,8 +277,21 @@ ul.mob-tab li {
 
 }
 
-
-
+.btn-stock
+{
+  color: white;
+  background-color: #36506C;
+  border-radius: 7px;
+  border: 1px solid #36506C;
+  padding: 1px 7px;
+  margin-right: 6px;
+  margin-top: -6px;
+  text-decoration: none;
+  &:hover{
+    color: #36506C;
+    background-color: white;
+  }
+}
 
 .item-sold-out {
   position: absolute;
