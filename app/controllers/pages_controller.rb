@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
   def explore
     @q = Item.ransack(params[:q])
-    @items = @q.result.includes(:user)
+    @items = @q.result.includes(:user).shuffle
   end
 
 end
