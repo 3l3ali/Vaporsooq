@@ -58,25 +58,31 @@
                 <%= link_to user_path(@item.user) do %>
                   <h4 class="font-seller-name text-center"><%= @item.user.first_name.downcase.capitalize %> <%= @item.user.last_name.downcase.capitalize %> </h4>
                 <% end %>
-                <table class="item-table ">
+                <table class="seller-table">
                   <tr>
                     <td><i class="fa fa-home" aria-hidden="true"></td>
-                    <td><h5><%= @item.user.city %></h5></td>
+                    <td><h5><div><%= @user.city %></div></h5></td>
                   </tr>
                   <tr>
                     <td><i class="fa fa-user" aria-hidden="true"></i></td>
-                    <td><h5><%= @item.user.contact_info %></h5></td>
+                    <td><h5><div><%= @user.contact_info %></div></h5></td>
                   </tr>
-                  <% if @item.user.description.present? %>
+                  <% if @user.description.present? %>
                     <tr>
                       <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
-                      <td><h5><%= @item.user.description %></h5></td>
+                      <td><h5><div><%= @user.description %></div></h5></td>
                     </tr>
                   <% end %>
-                  <% if @item.user.delivery == true %>
+                  <% if @user.delivery == true %>
                     <tr>
-                      <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i>&nbsp;&nbsp;</td>
+                      <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
                       <td><h5>delivery available</h5></td>
+                    </tr>
+                  <% end %>
+                  <% if @user.delivery == true && @user.delivery_discription.present? %>
+                    <tr>
+                      <td><i class="fa fa-truck" aria-hidden="true"></i></td>
+                      <td><h5><%= @user.delivery_discription %></h5></td>
                     </tr>
                   <% end %>
                 </table>
@@ -153,25 +159,31 @@
                 <%= link_to user_path(@item.user) do %>
                   <h4 class="font-seller-name text-center"><%= @item.user.first_name.downcase.capitalize %> <%= @item.user.last_name.downcase.capitalize %> </h4>
                 <% end %>
-                <table class="item-table ">
+                <table class="seller-table">
                   <tr>
                     <td><i class="fa fa-home" aria-hidden="true"></td>
-                    <td><h5><%= @item.user.city %></h5></td>
+                    <td><h5><div><%= @user.city %></div></h5></td>
                   </tr>
                   <tr>
                     <td><i class="fa fa-user" aria-hidden="true"></i></td>
-                    <td><h5><%= @item.user.contact_info %></h5></td>
+                    <td><h5><div><%= @user.contact_info %></div></h5></td>
                   </tr>
-                  <% if @item.user.description.present? %>
+                  <% if @user.description.present? %>
                     <tr>
                       <td><i class="fa fa-briefcase" aria-hidden="true"></i></i></td>
-                      <td><h5><%= @item.user.description %></h5></td>
+                      <td><h5><div><%= @user.description %></div></h5></td>
                     </tr>
                   <% end %>
-                  <% if @item.user.delivery == true %>
+                  <% if @user.delivery == true %>
                     <tr>
-                      <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i>&nbsp;&nbsp;</td>
+                      <td><i class="fa fa-check-circle" style="color: #00bfa5;" aria-hidden="true"></i></td>
                       <td><h5>delivery available</h5></td>
+                    </tr>
+                  <% end %>
+                  <% if @user.delivery == true && @user.delivery_discription.present? %>
+                    <tr>
+                      <td><i class="fa fa-truck" aria-hidden="true"></i></td>
+                      <td><h5><%= @user.delivery_discription %></h5></td>
                     </tr>
                   <% end %>
                 </table>
