@@ -51,28 +51,36 @@
     </table>
   </div>
   <div class="moving-wrapper">
-      <% if @items.count.zero? %>
-        <div class="no-items text-center">
-          <small><h1>No Items For Sale Here! Yet!</h1></small>
-          <h1><i class="far fa-smile"></i></h1>
-        </div>
-      <% else %>
-        <% @items.each do |item| %>
-            <div class="post-wrapper" style="cursor: pointer;" onclick="window.location='<%= user_item_path(params[:id],item) %>';">
-                <h4><small><%= item.title %></small></h4>
-
-                <%= cl_image_tag item.photo, class: "items-photo" %>
-
-                <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
-
-                <% if @user == current_user %>
-                  <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
-                    <i class="fas fa-edit"></i>
-                  <% end %>
-                <% end %>
-            </div>
+    <div class="profile-filter text-center hidden-xs hidden-sm">
+      <%= form_tag user_path(@user),class:"form-inline", method: :get do %>
+        <%= select_tag :item_type, options_for_select(Item::item_type_for_select, params[:item_type]),class:"form-control" %>
+        <%= button_tag type: 'submit' ,class:" btn search-btn-2 form-control" do %>
+            <i class="fas fa-search"></i>
         <% end %>
       <% end %>
+    </div>
+    <% if @items.count.zero? %>
+      <div class="no-items text-center">
+        <small><h1>No Items For Sale Here! Yet!</h1></small>
+        <h1><i class="far fa-smile"></i></h1>
+      </div>
+    <% else %>
+      <% @items.each do |item| %>
+          <div class="post-wrapper" style="cursor: pointer;" onclick="window.location='<%= user_item_path(params[:id],item) %>';">
+              <h4><small><%= item.title %></small></h4>
+
+              <%= cl_image_tag item.photo, class: "items-photo" %>
+
+              <h5 class="post-time"><small><%= item.created_at.strftime("%Y / %m / %e , %l:%M %p ") %></small></h5>
+
+              <% if @user == current_user %>
+                <%= link_to edit_user_item_path(current_user,item),class: "post-edit" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+              <% end %>
+          </div>
+      <% end %>
+    <% end %>
   </div>
 
  </div>
@@ -131,7 +139,16 @@
           </table>
         </div>
       </div>
-
+      <div class="col-xs-12">
+        <div class="profile-filter text-center hidden-lg hidden-md">
+          <%= form_tag user_path(@user),class:"form-inline", method: :get do %>
+            <%= select_tag :item_type, options_for_select(Item::item_type_for_select, params[:item_type]),class:"form-control" %>
+            <%= button_tag type: 'submit' ,class:" btn search-btn-2 form-control" do %>
+                <i class="fas fa-search"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div class="col-xs-12">
         <% if @items.count.zero? %>
           <div class="no-items-mobile text-center">
