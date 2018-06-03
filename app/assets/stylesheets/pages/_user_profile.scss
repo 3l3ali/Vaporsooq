@@ -1,3 +1,19 @@
+.profile-filter
+{
+  width:100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 7px 10px 0px 10px;
+  background-color: white;
+  margin-top: 30px;
+  select{
+    margin-bottom:7px;
+  }
+  button{
+    margin-bottom:7px;
+  }
+}
+
 .show-wrapper {
   display: flex;
   width: 100%;
